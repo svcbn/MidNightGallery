@@ -7,9 +7,11 @@ public class HandTracking : MonoBehaviour
     // Start is called before the first frame update
     public UDPReceive udpReceive;
     public GameObject[] handPoints;
+
+    public GameObject hand;
     void Start()
     {
-        
+        hand = GameObject.Find("Hand");
     }
  
     // Update is called once per frame
@@ -33,7 +35,8 @@ public class HandTracking : MonoBehaviour
             float y = float.Parse(points[i * 3 + 1]) / 100;
             float z = float.Parse(points[i * 3 + 2]) / 100;
  
-            handPoints[i].transform.localPosition = new Vector3(x, y, z);
+            handPoints[i].transform.localPosition = new Vector3(x, y, 0);
+            hand.transform.position = new Vector3(0, 0, z);
  
         }
  
