@@ -29,9 +29,9 @@ public class HandTracking : MonoBehaviour
         for ( int i = 0; i<21; i++)
         {
  
-            float x = 7-float.Parse(points[i * 3]) / 60;
-            float y = float.Parse(points[i * 3 + 1]) / 60;
-            float z = float.Parse(points[i * 3 + 2]) / 60;
+            float x = 7-float.Parse(points[i * 3]) / 100;
+            float y = float.Parse(points[i * 3 + 1]) / 100;
+            float z = float.Parse(points[i * 3 + 2]) / 100;
  
             handPoints[i].transform.localPosition = new Vector3(x, y, z);
  
