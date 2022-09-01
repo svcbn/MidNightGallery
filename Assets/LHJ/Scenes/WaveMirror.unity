@@ -1147,6 +1147,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.92, y: 1.84, z: 0.2}
   m_Center: {x: 2.11, y: -3.58, z: 0}
+--- !u!114 &1006258437 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9078511059252983086, guid: d034476a208ca3b478ba7d59d777d8f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1504308846}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 171fec3dcb41eed43a9583f8059fcc53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1191506488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,7 +2005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ac568b09c2b3c4aac9162e90f81e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handtracking: {fileID: 0}
+  handtracking: {fileID: 1006258437}
   waveform: {fileID: 2800000, guid: e41f4726e37522348bee867507137bdc, type: 3}
   waveScale: 0.05
   strength: 0.1
