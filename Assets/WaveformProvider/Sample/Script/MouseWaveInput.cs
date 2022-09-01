@@ -33,10 +33,10 @@ namespace Es.WaveformProvider.Sample
 			if (Input.GetMouseButton(0))
 			{
 				ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-				MoveWave();
 			}
-			//else
-				//ray = Camera.main.ScreenPointToRay(GetFingerPoint(8));
+			else
+				ray = Camera.main.ScreenPointToRay(GetFingerPoint(8));
+			MoveWave();
 			
 		}
 

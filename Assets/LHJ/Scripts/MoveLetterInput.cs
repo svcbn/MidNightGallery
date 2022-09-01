@@ -34,8 +34,12 @@ public class MoveLetterInput : MonoBehaviour
 
     private Vector2 GetFingerPoint(int index)
     {
-         return handtracking.handPoints[index].transform.position*handtracking.adjuster;
+        if(handtracking)
+            return handtracking.handPoints[index].transform.position*handtracking.adjuster;
+
+        return Vector2.zero;
     }
+
 
     private void MoveLetter()
     {
