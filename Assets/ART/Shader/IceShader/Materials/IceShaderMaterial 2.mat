@@ -82,7 +82,7 @@ Material:
     - _LightMultiFactor_4: 0.8
     - _LightPower_1: 10
     - _LightPower_2: 23
-    - _LightPower_3: 0.455
+    - _LightPower_3: 0.8
     - _LightPower_4: 10
     - _LightReflection_1: 0.01
     - _LightReflection_2: 0.01

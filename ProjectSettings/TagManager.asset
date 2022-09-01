@@ -8,6 +8,7 @@ TagManager:
   - Butterfly
   - HandCenter
   - ButterflyFSM
+  - WaveFSM
   layers:
   - Default
   - TransparentFX
