@@ -19,7 +19,8 @@ public class UDPReceive : MonoBehaviour
     public void Start()
     {
 
-        receiveThread = new Thread(new ThreadStart(ReceiveData));
+        receiveThread = new Thread(
+            new ThreadStart(ReceiveData));
         receiveThread.IsBackground = true;
         receiveThread.Start();
     }
