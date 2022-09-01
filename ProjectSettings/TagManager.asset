@@ -48,3 +48,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Chime
+    uniqueID: 1067979743
+    locked: 0
+  - name: background
+    uniqueID: 3691080005
+    locked: 0
