@@ -32,12 +32,14 @@ namespace Es.WaveformProvider.Sample
 			//Mouse입력 값이 있으면 || 손의 입력값이 있으면
 			if (Input.GetMouseButton(0))
 			{
-				ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			}
-			else
-				ray = Camera.main.ScreenPointToRay(GetFingerPoint(8));
-			MoveWave();
-			
+			ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				MoveWave();
+			}         
+      		if(handtracking && handtracking.fingerPointS=="0 1 1 0 0")
+			{
+			ray = Camera.main.ScreenPointToRay(GetFingerPoint(8));
+				MoveWave();
+			}			
 		}
 
 		private Vector2 GetFingerPoint(int index)

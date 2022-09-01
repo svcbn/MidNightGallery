@@ -25,19 +25,20 @@ public class MoveLetterInput : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-			ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        }			
-		else
-			ray = Camera.main.ScreenPointToRay(GetFingerPoint(8));
-		MoveLetter();
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            MoveLetter();
+        }         
+        if(handtracking && handtracking.fingerPointS=="0 1 1 0 0")
+        {
+            ray = Camera.main.ScreenPointToRay(GetFingerPoint(8));
+            MoveLetter();
+        }
+
     }
 
     private Vector2 GetFingerPoint(int index)
     {
-        if(handtracking)
-            return handtracking.handPoints[index].transform.position*(handtracking.adjuster+50);
-
-        return Vector2.zero;
+        return handtracking.handPoints[index].transform.position*(handtracking.adjuster+50);
     }
 
 

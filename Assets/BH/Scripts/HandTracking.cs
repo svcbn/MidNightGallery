@@ -13,7 +13,8 @@ public class HandTracking : MonoBehaviour
     public float speed = 20f;
    public float adjuster = 100;
 
-   public int[] fingerPoints= new int[5]; 
+   public int[] fingerPoints= new int[5];
+   public string fingerPointS; 
     void Start()
     {
         hand = GameObject.Find("Hand");
@@ -29,6 +30,9 @@ public class HandTracking : MonoBehaviour
         //print(data);
         string[] points = data.Split(',');
         //print(points[0]);
+
+        fingerPointS="";
+        fingerPointS += points[0]+ (points[1])+ (points[2]) + (points[3]) + (points[4]);
 
  
         //0        1*3      2*3
