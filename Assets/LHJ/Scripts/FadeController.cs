@@ -68,7 +68,7 @@ public class FadeController : MonoBehaviour
 
         while(alPhaColor.a<1)
         {
-            alPhaColor.a+=Time.deltaTime;
+            alPhaColor.a+=Time.deltaTime/4;
             fadeImage.color=alPhaColor;
             yield return null;
         }
@@ -86,7 +86,7 @@ public class FadeController : MonoBehaviour
 
         while(alPhaColor.a>0)
         {
-            alPhaColor.a-=Time.deltaTime;
+            alPhaColor.a-=Time.deltaTime/4;
             fadeImage.color=alPhaColor;
             yield return null;
         }
