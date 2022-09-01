@@ -42,7 +42,7 @@ namespace Es.WaveformProvider.Sample
 
 		private Vector2 GetFingerPoint(int index)
 		{
-			return handtracking.handPoints[index].transform.position*handtracking.adjuster;
+			return handtracking.handPoints[index].transform.position*(handtracking.adjuster+50);
 		}
 
 		private void MoveWave()
