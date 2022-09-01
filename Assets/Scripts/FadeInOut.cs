@@ -18,6 +18,8 @@ public class FadeInOut : MonoBehaviour
         logo.SetActive(false);
     }
     float alpht;
+    float currentime;
+    float createTime = 2;
     // Update is called once per frame
     void Update()
     {
@@ -27,10 +29,12 @@ public class FadeInOut : MonoBehaviour
             b = true;
             StartCoroutine("FadeOut");
         }
-        
-        if (alpht > 0.8)
+        currentime += Time.deltaTime;
+        print(currentime);
+        if (currentime > createTime)
         {
             logo.SetActive(true);
+            currentime = 0;
         }
     }
 

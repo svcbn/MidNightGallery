@@ -14,7 +14,8 @@ public class Shin_CameraMove : MonoBehaviour
         logo = GameObject.Find("Logo");
         logo.SetActive(false);
     }
-
+    float currentTime = 0;
+    float createTime = 3;
     // Update is called once per frame
     void Update()
     {
@@ -29,5 +30,11 @@ public class Shin_CameraMove : MonoBehaviour
             arrive = true;
         }
         print(distance);
+        currentTime += Time.deltaTime;
+        if (currentTime > createTime)
+        {
+            logo.SetActive(true);
+            currentTime = 0;
+        }
     }
 }
