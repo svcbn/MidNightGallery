@@ -20,7 +20,7 @@ public class Shin_CameraMove : MonoBehaviour
     {
         if (sound.GetComponent<ChimeSound>().first == true)
         {
-            transform.position = Vector3.Lerp(transform.position, destination.transform.position, Time.deltaTime * 0.3f);
+            transform.position = Vector3.Lerp(transform.position, destination.transform.position, Time.deltaTime * 0.1f);
         }
         float distance = Vector3.Distance(transform.position, destination.transform.position);
         if (distance < 90f)

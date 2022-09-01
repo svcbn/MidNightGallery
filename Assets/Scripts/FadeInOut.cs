@@ -40,7 +40,7 @@ public class FadeInOut : MonoBehaviour
         while (alpht <= 1)
         {
             image.color = new Color(1, 1, 1, alpht);
-            alpht += Time.deltaTime * 0.1f;
+            alpht += Time.deltaTime * 0.3f;
             yield return null;
         }
       
