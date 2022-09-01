@@ -166,12 +166,6 @@ public class ButterflyFSM_LJH : MonoBehaviour
 
     private void UpdateState5()
     {
-        //Â©¶û
-        butterflyState = ButterflyState.state6;
-    }
-
-    private void UpdateState6()
-    {
         currTime += Time.deltaTime;
         //½Ã¼±À» µÚ·Î µ¹¾Æº½
         Quaternion tmpRot = mainCam.transform.rotation;
@@ -179,8 +173,16 @@ public class ButterflyFSM_LJH : MonoBehaviour
         //½Ã¼±ÀÌ ´Ù ´êÀ¸¸é state7·Î
         if (currTime > backWaitTime)
         {
-            butterflyState = ButterflyState.state7;
+            butterflyState = ButterflyState.state6;
         }
+        
+        
+    }
+
+    private void UpdateState6()
+    {
+        //Â©¶û
+        butterflyState = ButterflyState.state7;
     }
 
     private void UpdateState7()

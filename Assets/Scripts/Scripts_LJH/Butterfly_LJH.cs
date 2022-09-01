@@ -77,6 +77,9 @@ public class Butterfly_LJH : MonoBehaviour
             else
             {
                 //if(Vector2.Distance(new Vector2(handCenter.transform.position.x,handCenter.transform.position.y),new Vector2(transform.position.x, transform.position.y)) >= 4f)
+                if(!handCenter)
+                    handCenter = GameObject.FindGameObjectWithTag("HandCenter");
+
                 if (Vector3.Distance(handCenter.transform.position, transform.position) > 7f)
                 {
                     isHandNear = false;
