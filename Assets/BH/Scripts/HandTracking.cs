@@ -9,9 +9,9 @@ public class HandTracking : MonoBehaviour
     public GameObject[] handPoints;
 
     public GameObject hand;
-    public float adjuster = 100;
-    public float speed = 5f;
 
+    public float speed = 20f;
+   public float adjuster = 100;
     void Start()
     {
         hand = GameObject.Find("Hand");
@@ -35,15 +35,14 @@ public class HandTracking : MonoBehaviour
         for ( int i = 0; i<21; i++)
         {
  
-            float x = 9 - float.Parse(points[i * 3]) / adjuster;
-            float y = float.Parse(points[i * 3 + 1]) / adjuster;
-            float z = float.Parse(points[i * 3 + 2]) / adjuster;
+            float x = 9 - float.Parse(points[i * 3]) /100;
+            float y = float.Parse(points[i * 3 + 1]) / 100;
+            float z = float.Parse(points[i * 3 + 2]) / 100;
 
-            handPoints[i].transform.localPosition = new Vector3(x, y, z);
-            //handPoints[i].transform.localPosition = Vector3.Lerp(handPoints[i].transform.localPosition, new Vector3(x, y, z), speed * Time.deltaTime);
+            handPoints[i].transform.localPosition = Vector3.Lerp(handPoints[i].transform.localPosition, new Vector3(x, y, z), speed * Time.deltaTime);
             //hand.transform.position = new Vector3(0, 0, z/2);
         }
-
-
+ 
+ 
     }
 }
