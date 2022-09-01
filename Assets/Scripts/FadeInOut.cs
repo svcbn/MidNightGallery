@@ -7,8 +7,8 @@ public class FadeInOut : MonoBehaviour
 {
     Image image;
     public GameObject arrive;
-    GameObject logo;
-    bool b;
+    public GameObject logo;
+    bool b = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,16 +25,19 @@ public class FadeInOut : MonoBehaviour
     {
         if (b == false && arrive.GetComponent<Shin_CameraMove>().arrive == true)
         {
-            
+
             b = true;
             StartCoroutine("FadeOut");
         }
-        currentime += Time.deltaTime;
-        print(currentime);
-        if (currentime > createTime)
+        if (image.color.a > 0.9f)
         {
-            logo.SetActive(true);
-            currentime = 0;
+            currentime += Time.deltaTime;
+            print(currentime);
+            if (currentime > createTime)
+            {
+                logo.SetActive(true);
+                currentime = 0;
+            }
         }
     }
 
@@ -47,8 +50,8 @@ public class FadeInOut : MonoBehaviour
             alpht += Time.deltaTime * 0.3f;
             yield return null;
         }
-      
-        
+
+
         //for (int i = 100; i >= 0; i--)
         //{
         //    float f = i / 10f;
