@@ -4,29 +4,75 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    float speed = 5;
-    
+    public float speed = 4;
+    public float gravity = -20f;
+    public float jumpPower = 5f;
+
+    float yVelocity = 0;
+    bool isJumping;
+
     CharacterController cc;
-    Animator anima;
+
+    CassidyRecoil recoil;
+
+    float walkDelay = 0.4f;
+    float currentTime = 0;
+    float walkTime = 0;
+    public float ySpeed = 100;
     // Start is called before the first frame update
     void Start()
     {
+        recoil = GetComponentInChildren<CassidyRecoil>();
         cc = GetComponent<CharacterController>();
-        anima = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
-       
-     
-        Vector3 dir = Vector3.forward * v + Vector3.right * h;
-        
+        currentTime += Time.deltaTime;
+        walkTime += Time.deltaTime;
+
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+
+        Vector3 dir = new Vector3(h, 0, v);
         dir = Camera.main.transform.TransformDirection(dir);
-        dir.Normalize();
-        dir.y = 0;
+
+        if (dir != Vector3.zero)
+        {
+
+        
+
+            currentTime = 0;
+        }
+
+        if (dir != Vector3.zero && walkTime > walkDelay)
+        {
+            recoil.RecoilMove(0, -10f, 0, ySpeed);
+
+            walkTime = 0;
+        }
+
+
+        yVelocity += gravity * Time.deltaTime;
+
+        if (cc.collisionFlags == CollisionFlags.Below)
+        {
+            yVelocity = 0;
+            isJumping = false;
+        }
+
+        if (Input.GetButtonDown("Jump") && !isJumping)
+        {
+            yVelocity = jumpPower;
+            isJumping = true;
+
+        }
+
+        dir.y = yVelocity;
+
         cc.Move(dir * speed * Time.deltaTime);
+
     }
+
 }

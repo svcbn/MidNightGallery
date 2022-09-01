@@ -4,26 +4,34 @@ using UnityEngine;
 
 public class CameraRotate : MonoBehaviour
 {
-    float rx;
-    float ry;
+    public float rotSpeed = 205;
+
+    float mx;
+    float my;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        mx = transform.eulerAngles.y;
+        my = -transform.eulerAngles.x;
+        transform.eulerAngles = new Vector3(-my, mx, 0);
+        Cursor.lockState = CursorLockMode.Locked;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        float mx = Input.GetAxis("Mouse X");
-        float my = Input.GetAxis("Mouse Y");
-        rx += mx;
-        ry += my;
+        float h = Input.GetAxis("Mouse X");
+        float v = Input.GetAxis("Mouse Y");
 
-        rx = Mathf.Clamp(rx, -80, 80);
-        transform.eulerAngles = new Vector3(-ry, rx, 0);
-       
+        mx += h * rotSpeed * Time.deltaTime;
+        my += v * rotSpeed * Time.deltaTime;
+
+        // ½Ã¾ß°¢
+        my = Mathf.Clamp(my, -60, 60);
+        transform.eulerAngles = new Vector3(-my, mx, 0);
     }
-
-
 }
+
