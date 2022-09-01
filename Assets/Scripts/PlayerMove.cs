@@ -7,10 +7,12 @@ public class PlayerMove : MonoBehaviour
     float speed = 5;
     
     CharacterController cc;
+    Animator anima;
     // Start is called before the first frame update
     void Start()
     {
-        cc = GetComponent<CharacterController>();   
+        cc = GetComponent<CharacterController>();
+        anima = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -18,7 +20,8 @@ public class PlayerMove : MonoBehaviour
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-
+       
+     
         Vector3 dir = Vector3.forward * v + Vector3.right * h;
         
         dir = Camera.main.transform.TransformDirection(dir);
