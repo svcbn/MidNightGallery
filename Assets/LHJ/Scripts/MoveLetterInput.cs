@@ -9,6 +9,7 @@ public class MoveLetterInput : MonoBehaviour
     public GameObject colliderPref;
     private GameObject collider;
 
+
    
     // Start is called before the first frame update
     void Start()
@@ -52,4 +53,12 @@ public class MoveLetterInput : MonoBehaviour
             //Debug.Log("Move Letter");
         }
     }
+    // protected void AudioPlay(AudioClip clip, bool isLoop, float volume)
+    //     {
+    //         audioSource.Stop();
+    //         audioSource.clip=clip;
+    //         audioSource.loop=isLoop;
+    //         audioSource.volume=volume;
+    //         audioSource.Play();
+    //     }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ButterflyFSM_LJH : MonoBehaviour
 {
@@ -44,12 +45,15 @@ public class ButterflyFSM_LJH : MonoBehaviour
     public Transform cameraBackPos;
     public Transform handRot;
     public bool isButterflyRunaway = false;
-  
+    public AudioSource chimeAudioSource;
+    public bool isChimeTouch = false;
 
+    bool isChimeSoundRing = false;
     // Start is called before the first frame update
     void Start()
     {
         isButterflyRunaway = false;
+        chimeAudioSource.clip = Resources.Load("Resources_LJH/WINDCHIME") as AudioClip;
     }
 
     // Update is called once per frame
@@ -167,22 +171,36 @@ public class ButterflyFSM_LJH : MonoBehaviour
     private void UpdateState5()
     {
         currTime += Time.deltaTime;
+        //Â©¶û
+        if (!isChimeSoundRing)
+        {
+            chimeAudioSource.Play();
+            isChimeSoundRing = true;
+        }
+        if (currTime > 1.2f)
+        {
+            butterflyState = ButterflyState.state6;
+            currTime = 0f;
+            isChimeSoundRing = false;
+        }
+
+
+    }
+
+    private void UpdateState6()
+    {
+        currTime += Time.deltaTime;
         //½Ã¼±À» µÚ·Î µ¹¾Æº½
         Quaternion tmpRot = mainCam.transform.rotation;
         mainCam.transform.rotation = Quaternion.Lerp(tmpRot, cameraBackPos.rotation, cameraRotSpeed);
         //½Ã¼±ÀÌ ´Ù ´êÀ¸¸é state7·Î
         if (currTime > backWaitTime)
         {
-            butterflyState = ButterflyState.state6;
+            butterflyState = ButterflyState.state7;
+            currTime = 0f;
         }
-        
-        
-    }
 
-    private void UpdateState6()
-    {
-        //Â©¶û
-        butterflyState = ButterflyState.state7;
+        
     }
 
     private void UpdateState7()
@@ -204,7 +222,24 @@ public class ButterflyFSM_LJH : MonoBehaviour
 
     private void UpdateState8()
     {
-       //´ÙÀ½ ¾ÀÀ¸·Î
+        //´ÙÀ½ ¾ÀÀ¸·Î
+        manager.SetActive(true);
+        hand.SetActive(true);
+
+        if (isChimeTouch)
+        {
+            if (isChimeSoundRing == false)
+            {
+                chimeAudioSource.Play();
+                isChimeSoundRing = true;
+            }
+            currTime += Time.deltaTime;
+            if (currTime > 1.1f)
+            {
+                print("Scene change");
+                SceneManager.LoadScene("Scene3_Wind 1");
+            }
+        }
     }
     private void UpdateState9()
     {
