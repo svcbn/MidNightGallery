@@ -25,12 +25,12 @@ public class ChimeSound : MonoBehaviour
     {
         if (other.gameObject.GetComponent<SphereCollider>() && first == false)
         {
+            print(first);
             GameObject soundg = Instantiate(soundFactory);
             soundg.transform.position = transform.position;
             audios.Play();
             
             first = true;
-            print(first);
         }
 
     }
