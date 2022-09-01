@@ -134,9 +134,10 @@ GameObject:
   - component: {fileID: 46829156}
   - component: {fileID: 46829155}
   - component: {fileID: 46829154}
-  - component: {fileID: 46829153}
   - component: {fileID: 46829157}
   - component: {fileID: 46829158}
+  - component: {fileID: 46829159}
+  - component: {fileID: 46829160}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -144,20 +145,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &46829153
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46829152}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &46829154
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -248,6 +235,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc78334d0d8ba8489c5746b6cad6e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!143 &46829159
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46829152}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &46829160
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46829152}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &114939252
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,6 +22,8 @@ public class CameraRotate : MonoBehaviour
 
         rx = Mathf.Clamp(rx, -80, 80);
         transform.eulerAngles = new Vector3(-ry, rx, 0);
-
+       
     }
+
+
 }

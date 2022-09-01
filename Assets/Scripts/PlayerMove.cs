@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     float speed = 5;
+    
     CharacterController cc;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class PlayerMove : MonoBehaviour
         
         dir = Camera.main.transform.TransformDirection(dir);
         dir.Normalize();
+        dir.y = 0;
         cc.Move(dir * speed * Time.deltaTime);
     }
 }
