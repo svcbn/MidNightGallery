@@ -5,7 +5,7 @@ namespace Es.WaveformProvider.Sample
 	/// <summary>
 	/// Enter the waveform with a collision.
 	/// </summary>
-	[RequireComponent(typeof(Collider), typeof(Rigidbody))]
+	[RequireComponent(typeof(Collider))]
 	public class CollisionWaveInput : MonoBehaviour
 	{
 		[SerializeField]
@@ -17,11 +17,11 @@ namespace Es.WaveformProvider.Sample
 		[SerializeField, Range(0f, 1f)]
 		private float strength = 1f;
 
-		private new Rigidbody rigidbody;
+		//private new Rigidbody rigidbody;
 
 		private void Awake()
 		{
-			rigidbody = GetComponent<Rigidbody>();
+			//rigidbody = GetComponent<Rigidbody>();
 		}
 
 		private void OnCollisionEnter(Collision collision)
@@ -40,7 +40,7 @@ namespace Es.WaveformProvider.Sample
 			{
 				var canvas = p.otherCollider.GetComponent<WaveConductor>();
 				if (canvas != null)
-					canvas.Input(waveform, p.point, rigidbody.velocity.magnitude * rigidbody.mass * inputScaleFitter, strength);
+					canvas.Input(waveform, p.point,inputScaleFitter, strength); // rigidbody.velocity.magnitude * rigidbody.mass * 
 			}
 		}
 	}

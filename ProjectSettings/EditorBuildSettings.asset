@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/LHJ/Scenes/WaveMirror.unity
     guid: 389a3300604540846b290919ebd586d3
   - enabled: 1
-    path: Assets/LHJ/Scenes/WaveBounce.unity
-    guid: d3b6c384166d34143a0fddc1e58bfa78
+    path: Assets/Scenes/Scene1_Wave 1.unity
+    guid: 6bec35b132104a84b96c48d9ef6e63bf
   m_configObjects: {}

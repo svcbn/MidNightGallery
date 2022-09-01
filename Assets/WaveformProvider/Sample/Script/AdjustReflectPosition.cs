@@ -5,7 +5,7 @@ namespace Es.WaveformProvider.Sample
 	/// <summary>
 	/// Moves to the reflection position of the specified object.
 	/// </summary>
-	[ExecuteInEditMode]
+	//[ExecuteInEditMode]
 	public class AdjustReflectPosition : MonoBehaviour
 	{
 		[SerializeField]
