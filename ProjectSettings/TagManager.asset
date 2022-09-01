@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shootable
+  - Butterfly
+  - HandCenter
+  - ButterflyFSM
   layers:
   - Default
   - TransparentFX
@@ -12,14 +15,14 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Letter
   - 
   - Lighting
   - Ground
   - Postprocessing
   - 
-  - 
-  - 
+  - Butterfly
+  - ButterflyWaypoints
   - 
   - 
   - 
