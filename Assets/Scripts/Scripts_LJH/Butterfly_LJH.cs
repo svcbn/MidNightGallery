@@ -70,7 +70,7 @@ public class Butterfly_LJH : MonoBehaviour
         //if(Vector2.Distance(new Vector2(mousePos.x,mousePos.y),new Vector2(transform.position.x, transform.position.y)) < 0.5f)
         else
         {
-            //if(Vector2.Distance(new Vector2(handCenter.transform.position.x,handCenter.transform.position.y),new Vector2(transform.position.x, transform.position.y)) > 7)
+            //if(Vector2.Distance(new Vector2(handCenter.transform.position.x,handCenter.transform.position.y),new Vector2(transform.position.x, transform.position.y)) >= 4f)
             if (Vector3.Distance(handCenter.transform.position, transform.position) > 7f)
             {
                 isHandNear = false;
