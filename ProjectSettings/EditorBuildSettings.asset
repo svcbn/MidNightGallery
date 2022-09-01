@@ -9,12 +9,15 @@ EditorBuildSettings:
     path: Assets/LHJ/Scenes/WaveMirror.unity
     guid: 389a3300604540846b290919ebd586d3
   - enabled: 1
-    path: Assets/LHJ/Scenes/WaveBounce.unity
-    guid: d3b6c384166d34143a0fddc1e58bfa78
-  - enabled: 1
-    path: Assets/Scenes/Scene3_Wind 1.unity
-    guid: 1b2ff1f4899ce7249acbe4c51a96a4f4
+    path: Assets/Scenes/Scene1_Wave 1.unity
+    guid: 6bec35b132104a84b96c48d9ef6e63bf
   - enabled: 1
     path: Assets/Scenes/Scenes_LJH/Butterfly_LJH.unity
     guid: 0b36dfc2384e2e14aa5c8b9140bf79c5
+  - enabled: 1
+    path: Assets/Scenes/Scene4_Fire12.unity
+    guid: 5bb1adad4be06984384edb1e20071b7a
+  - enabled: 1
+    path: Assets/Scenes/Scene3_Wind 1.unity
+    guid: 1b2ff1f4899ce7249acbe4c51a96a4f4
   m_configObjects: {}
