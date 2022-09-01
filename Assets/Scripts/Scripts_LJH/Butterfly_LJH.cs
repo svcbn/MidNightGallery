@@ -9,13 +9,20 @@ public class Butterfly_LJH : MonoBehaviour
     public float amplitude = 0.1f;
     public float sinSpeed = 3f;
 
-    float theta = 0f;
-    int index = 0;
+    public bool isHandNear = false;
+    public GameObject handCenter;
 
+    float theta = 0f;
+    float escapeSpeed = 1f;
+    public int index = 0;
+    public float wayChangeTime = 3f;
+    float currChangeTime = 0f;
+    Vector3 dir;
+    Vector2 dir2;
     // Start is called before the first frame update
     void Start()
     {
-        
+        handCenter = GameObject.FindGameObjectWithTag("HandCenter");
     }
 
     // Update is called once per frame
@@ -23,32 +30,60 @@ public class Butterfly_LJH : MonoBehaviour
     {
         theta += sinSpeed * Time.deltaTime;
 
-        if (Vector3.Distance(transform.position, waypoints[index].position) > 0.5f)
+        if (!isHandNear)
         {
-            Vector3 dir = waypoints[index].position - transform.position;
-            dir.Normalize();
 
-            transform.position += dir * moveSpeed * Time.deltaTime;
-            transform.position += Vector3.up * Mathf.Sin(theta) * amplitude;
-
-        }
-        else
-        {
-            if (index == waypoints.Count - 1)
+            /*
+            if (Vector2.Distance(new Vector2(transform.position.x, transform.position.y),new Vector2(waypoints[index].position.x, waypoints[index].position.y)) > 1f)
             {
-                index = 0;
-
+                dir = waypoints[index].position - transform.position;
+                
+                dir.Normalize();
+                escapeSpeed = 1f;
             }
             else
             {
-                index += 1;
+                if (index == waypoints.Count - 1)
+                {
+                    index = 0;
+
+                }
+                else
+                {
+                    index += 1;
+                }
             }
+            */
+           
+            currChangeTime += Time.deltaTime;
+            if (currChangeTime > wayChangeTime)
+            {
+                index = Random.Range(0, waypoints.Count);
+                currChangeTime = 0f;
+            }
+            dir = waypoints[index].position - transform.position;
+            dir.Normalize();
+            escapeSpeed = 1f;
         }
+        //Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
 
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
-
-        if(Vector2.Distance(new Vector2(mousePos.x,mousePos.y),new Vector2(transform.position.x, transform.position.y)) < 0.5f)
+        //if(Vector2.Distance(new Vector2(mousePos.x,mousePos.y),new Vector2(transform.position.x, transform.position.y)) < 0.5f)
+        else
         {
+            //if(Vector2.Distance(new Vector2(handCenter.transform.position.x,handCenter.transform.position.y),new Vector2(transform.position.x, transform.position.y)) > 7)
+            if (Vector3.Distance(handCenter.transform.position, transform.position) > 7f)
+            {
+                isHandNear = false;
+
+                return;
+            }
+            
+            dir = (handCenter.transform.position - transform.position) * -1;
+            
+            dir.Normalize();
+            escapeSpeed = 5f;
+
+            /*
             int minIndex = 0;
             float minDistance = Vector3.Distance(waypoints[index].position, transform.position);
 
@@ -61,6 +96,10 @@ public class Butterfly_LJH : MonoBehaviour
                 }
             }
             index = minIndex;
+            */
         }
+        //dir.z *= 0.1f;
+        transform.position += dir * moveSpeed * Time.deltaTime * escapeSpeed;
+        transform.position += Vector3.up * Mathf.Sin(theta) * amplitude;
     }
 }
