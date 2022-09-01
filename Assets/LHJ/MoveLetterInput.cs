@@ -9,6 +9,7 @@ public class MoveLetterInput : MonoBehaviour
     public GameObject colliderPref;
     private GameObject collider;
 
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +34,7 @@ public class MoveLetterInput : MonoBehaviour
 
     private Vector2 GetFingerPoint(int index)
     {
-        return handtracking.handPoints[index].transform.position*handtracking.adjuster;
+         return handtracking.handPoints[index].transform.position*handtracking.adjuster;
     }
 
     private void MoveLetter()
