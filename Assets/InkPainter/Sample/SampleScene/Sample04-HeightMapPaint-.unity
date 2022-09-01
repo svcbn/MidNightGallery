@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 73ee9a60f50732f46afbc6f23d520b4d, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 8b24531217f787f4b8b23d56310b2693, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -297,7 +297,7 @@ MonoBehaviour:
     rotateAngle: 0
     brushNormalBlend: 0.1
     brushHeightBlend: 0.1
-    brushColor: {r: 0.15151297, g: 0.5283019, b: 0.34220493, a: 1}
+    brushColor: {r: 0.21323529, g: 0.85294116, b: 0.53529423, a: 1}
     colorBlendType: 0
     normalBlendType: 0
     heightBlendType: 0
@@ -369,14 +369,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 968815558}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.22, z: -3.82}
+  m_LocalRotation: {x: -0.45260996, y: -0, z: -0, w: 0.8917087}
+  m_LocalPosition: {x: 0, y: -3.71, z: -0.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -53.813004, y: 0, z: 0}
 --- !u!1 &1899653434
 GameObject:
   m_ObjectHideFlags: 0
