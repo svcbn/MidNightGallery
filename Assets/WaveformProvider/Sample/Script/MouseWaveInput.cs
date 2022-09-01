@@ -20,6 +20,7 @@ namespace Es.WaveformProvider.Sample
 		private float strength = 0.1f;
 
 		private Ray ray;
+
 		private void Awake()
 		{
 			if(GameObject.Find("Manager"))
@@ -32,11 +33,11 @@ namespace Es.WaveformProvider.Sample
 			if (Input.GetMouseButton(0))
 			{
 				ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				MoveWave();
 			}
-			else
-				ray = Camera.main.ScreenPointToRay(GetFingerPoint(8));
+			//else
+				//ray = Camera.main.ScreenPointToRay(GetFingerPoint(8));
 			
-			MoveWave();
 		}
 
 		private Vector2 GetFingerPoint(int index)
@@ -47,7 +48,8 @@ namespace Es.WaveformProvider.Sample
 		private void MoveWave()
 		{
 			RaycastHit hitInfo;
-			if (Physics.Raycast(ray, out hitInfo))
+			int layerMask= LayerMask.GetMask("Water");
+			if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity, layerMask))
 			{
 				//파동 만들기
 				var waveObject = hitInfo.transform.GetComponent<WaveConductor>();
