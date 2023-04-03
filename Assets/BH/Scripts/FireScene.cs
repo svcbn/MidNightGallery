@@ -42,14 +42,13 @@ public class FireScene : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hitInfo, 1000, layerMask))
                 {
-                    print(Camera.main.WorldToScreenPoint(hitInfo.transform.position).x);
-                    print(tempPos.x);
+                    //print(Camera.main.WorldToScreenPoint(hitInfo.transform.position).x);
+                    //print(tempPos.x);
                     Debug.DrawLine(ray.origin, hitInfo.point, Color.red);
+                    
                     if (Camera.main.WorldToScreenPoint(hitInfo.transform.position).x - 800 > tempPos.x / 4)
                     {
-
                         fires[i].SetActive(true);
-
                     }
                     else if (Camera.main.WorldToScreenPoint(hitInfo.transform.position).x - 800 < tempPos.x / 4)
                     {
@@ -57,24 +56,25 @@ public class FireScene : MonoBehaviour
                     }
                 }
             }
+            
             if(fires[0].activeSelf == true && onfire == false)
             {
                 fireAudio.fireAudio[0].Play();
                 onfire = true;
             }
+            
             if(fires[0].activeSelf == true)
             {
                 fireAudio.fireAudio[1].Play();
                 ignition = true;
             }
+            
             if(fires[0].activeSelf == false)
             {
                 onfire = false;
                 ignition = false;
             }
-
+            
         }
-
     }
-    
 }
