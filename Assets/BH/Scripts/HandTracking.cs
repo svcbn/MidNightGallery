@@ -49,7 +49,8 @@ public class HandTracking : MonoBehaviour
             float y = float.Parse(points[i * 3 + 6]) / adjuster;
             float z = float.Parse(points[i * 3 + 7]) / adjuster;
 
-            handPoints[i].transform.localPosition = Vector3.Lerp(handPoints[i].transform.localPosition, new Vector3(x, y, z), speed * Time.deltaTime);
+            handPoints[i].transform.localPosition = Vector3.Lerp(handPoints[i].transform.localPosition,
+            new Vector3(x, y, z), speed * Time.deltaTime);
             //hand.transform.position = new Vector3(0, 0, z/2);
         }
  
