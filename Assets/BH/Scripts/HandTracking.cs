@@ -33,17 +33,17 @@ public class HandTracking : MonoBehaviour
         //print(points[0]);
 
         fingerPointS="";
-        fingerPointS += points[0]+ (points[1])+ (points[2]) + (points[3]) + (points[4]);
+        fingerPointS += points[0]+ points[1]+ points[2] + points[3] + points[4];
         
         //0        1*3      2*3
         //x1,y1,z1,x2,y2,z2,x3,y3,z3
-        fingerPoints[0] = int.Parse(points[0]);
-        fingerPoints[1] = int.Parse(points[1]);
-        fingerPoints[2] = int.Parse(points[2]);
-        fingerPoints[3] = int.Parse(points[3]);
-        fingerPoints[4] = int.Parse(points[4]);
+        
+        for ( int i = 0; i < 5; i++)
+        {
+            fingerPoints[i] = int.Parse(points[i]);
+        }
  
-        for ( int i = 0; i<21; i++)
+        for ( int i = 0; i < 21; i++)
         { 
             float x = 9 - float.Parse(points[i * 3 + 5]) /adjuster;
             float y = float.Parse(points[i * 3 + 6]) / adjuster;
