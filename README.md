@@ -1,5 +1,8 @@
 # MidNightGallery
 ###### MTVS Mid-Night Camp Jam Project  
+
+<img src="Thumbnail.gif" width="70%"> 
+<br/>
   
 - 프로젝트명 : MidNight Gallery  
 - 장르 : 인터랙티브 미디어 아트  
